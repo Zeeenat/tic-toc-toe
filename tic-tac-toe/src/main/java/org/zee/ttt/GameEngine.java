@@ -56,7 +56,7 @@ public class GameEngine {
         return GameResult.GAME_CONTINUES;
     }
 
-    public static void printGameResult(GameResult gameResult, boolean isPlayer1) {
+    public void printGameResult(GameResult gameResult, boolean isPlayer1) {
         switch (gameResult) {
             case GAME_CONTINUES:
                 if (isPlayer1) {
