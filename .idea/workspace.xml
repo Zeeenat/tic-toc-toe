@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dca5ea45-c1a1-4b8e-9056-f5a26e2b4018" name="Changes" comment="Add class Player" />
+    <list default="true" id="dca5ea45-c1a1-4b8e-9056-f5a26e2b4018" name="Changes" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/zee/ttt/GameEngine.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Zeeenat &lt;102461288+zeeenat@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--follow-tags" />
@@ -111,7 +118,28 @@
       <option name="project" value="LOCAL" />
       <updated>1651999724188</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update GameEngine.java">
+      <created>1662797324402</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662797324402</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/zee/ttt/GameEngine.java">
+      <created>1662797459600</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1662797459600</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/zee/ttt/GameEngine.java">
+      <created>1662797542531</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662797542531</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,7 +157,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Add class Player" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add class Player" />
+    <MESSAGE value="Update GameEngine.java" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/zee/ttt/GameEngine.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/org/zee/ttt/GameEngine.java" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
