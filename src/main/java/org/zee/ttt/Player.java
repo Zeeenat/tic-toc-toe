@@ -9,13 +9,30 @@ public class Player {
 
     public static int makeMove(Value[][] grid, Value value, int moves) {
         if (value.equals(Value.CROSS)) {
-            if (moves >= 5) {
+            if (moves == 0) {
+                double random = Math.random();
+                if (random < 0.25) {
+                    return 0;
+                } else if (random < 0.5) {
+                    return 2;
+                } else if (random < 0.75) {
+                    return 20;
+                } else {
+                    return 22;
+                }
+            }
+            if (moves >= 4) {
                 if (winningSituation(grid, value) != -1) {
                     return winningSituation(grid, value);
                 }
             }
-        } else if (value.equals(Value.NAUGHT)) {
-            if (moves >= 6) {
+        }
+
+
+
+
+        else if (value.equals(Value.NAUGHT)) {
+            if (moves >= 5) {
                 if (winningSituation(grid, value) != -1) {
                     return winningSituation(grid, value);
                 }
