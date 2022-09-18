@@ -11,13 +11,16 @@ public class GameEngine {
                 {Value.EMPTY, Value.EMPTY, Value.EMPTY},
                 {Value.EMPTY, Value.EMPTY, Value.EMPTY}
         };
+        Player playerX = new Player(Value.CROSS);
+        Player playerO = new Player(Value.NAUGHT);
+        boolean isPlayer1 = true;
         printGrid(grid);
         Scanner xnos = new Scanner(System.in);
-        boolean isPlayer1 = true;
         int move = 0;
         GameResult thisResult;
         do {
-            Value thisValue = isPlayer1 ? Value.CROSS : Value.NAUGHT;
+            Player currentPlayer = isPlayer1 ? playerX : playerO;
+            Value thisValue = currentPlayer.value;
             int nextMove = xnos.nextInt();
             grid[nextMove / 10][nextMove % 10] = thisValue;
             thisResult = getGameResult(grid, move, isPlayer1);
