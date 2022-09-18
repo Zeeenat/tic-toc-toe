@@ -1,15 +1,17 @@
 package org.zee.ttt;
 
+import java.util.Scanner;
+
 public class Player implements Players {
     Value value;
 
     Player(Value value) {
         this.value = value;
-
     }
 
-    public int makeMove(Value[][] grid) {
-        return 0;
+    public int[] makeMove(Value[][] grid) {
+        Scanner move = new Scanner(System.in);
+        return new int[]{move.nextInt() / 10, move.nextInt() % 10};
     }
 
     //    public static int makeMove(Value[][] grid, Value value, int moves) {
