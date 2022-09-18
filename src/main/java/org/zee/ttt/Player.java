@@ -2,18 +2,17 @@ package org.zee.ttt;
 
 import java.util.Scanner;
 
-public class Player implements Players {
+public class Player {
     Value value;
 
     Player(Value value) {
         this.value = value;
     }
 
-    public int[] makeMove(Value[][] grid) {
-        Scanner move = new Scanner(System.in);
-        return new int[]{move.nextInt() / 10, move.nextInt() % 10};
+    public Cell makeMove(Value[][] grid,int move) {
+        Cell cell = Cell.intToCell(move);
+        return cell;
     }
-
     //    public static int makeMove(Value[][] grid, Value value, int moves) {
     //        if (value.equals(Value.CROSS)) {
     //            if (moves == 0) {
