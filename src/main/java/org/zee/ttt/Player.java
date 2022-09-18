@@ -11,7 +11,8 @@ public class Player implements Players {
 
     public int[] makeMove(Value[][] grid) {
         Scanner move = new Scanner(System.in);
-        return new int[]{move.nextInt() / 10, move.nextInt() % 10};
+        int nextMove = move.nextInt();
+        return new int[]{nextMove / 10, nextMove % 10};
     }
 
     //    public static int makeMove(Value[][] grid, Value value, int moves) {
