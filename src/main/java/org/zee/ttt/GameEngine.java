@@ -13,21 +13,19 @@ public class GameEngine {
         };
         Player playerX = new Player(Value.CROSS);
         Player playerO = new Player(Value.NAUGHT);
-        boolean isPlayer1 = true;
         printGrid(grid);
         Scanner xnos = new Scanner(System.in);
         int move = 0;
         GameResult thisResult;
         do {
-            Player currentPlayer = isPlayer1 ? playerX : playerO;
-            Value thisValue = currentPlayer.value;
+            Player thisPlayer = move % 2 == 0 ? playerX : playerO;
+            Value thisValue = thisPlayer.value;
             int nextMove = xnos.nextInt();
             grid[nextMove / 10][nextMove % 10] = thisValue;
-            thisResult = getGameResult(grid, move, isPlayer1);
+            thisResult = getGameResult(grid, move, thisValue);
             printGrid(grid);
             move++;
-            printGameResult(thisResult, isPlayer1);
-            isPlayer1 = !isPlayer1;
+            printGameResult(thisResult, thisValue);
             if (thisResult != GameResult.GAME_CONTINUES) {
                 break;
             }
@@ -35,8 +33,8 @@ public class GameEngine {
     }
 
 
-    public GameResult getGameResult(Value[][] grid, int move, boolean isPlayer1) {
-        GameResult thisResult = isPlayer1 ? GameResult.CROSSES_WON : GameResult.NAUGHTS_WON;
+    public GameResult getGameResult(Value[][] grid, int move, Value currentValue) {
+        GameResult thisResult = currentValue==Value.CROSS ? GameResult.CROSSES_WON : GameResult.NAUGHTS_WON;
         for (int i = 0; i < grid.length; i++) {
             Value cell = grid[i][0];
             if ((cell == grid[i][1] && cell == grid[i][2]) && cell != Value.EMPTY) {
@@ -59,10 +57,10 @@ public class GameEngine {
         return GameResult.GAME_CONTINUES;
     }
 
-    public void printGameResult(GameResult gameResult, boolean isPlayer1) {
+    public void printGameResult(GameResult gameResult, Value currentValue) {
         switch (gameResult) {
             case GAME_CONTINUES:
-                if (isPlayer1) {
+                if (currentValue==Value.CROSS) {
                     System.out.println("Ход нолика");
                 } else {
                     System.out.println("Ход крестика");

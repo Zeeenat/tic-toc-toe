@@ -1,12 +1,12 @@
 package org.zee.ttt;
 
 public class Cell {
-    int row;
-    int column;
+   final int ROW;
+   final int COLUMN;
 
-    Cell(int row, int column) {
-        this.row = row;
-        this.column = column;
+    Cell(int ROW, int COLUMN) {
+        this.ROW = ROW;
+        this.COLUMN = COLUMN;
     }
 
     public static Cell intToCell(int num) {
@@ -18,6 +18,6 @@ public class Cell {
     }
 
     public static int cellToInt(Cell cell) {
-        return cell.row * 10 + cell.column;
+        return cell.ROW * 10 + cell.COLUMN;
     }
 }

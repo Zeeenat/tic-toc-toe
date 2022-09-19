@@ -9,9 +9,8 @@ public class Player {
         this.value = value;
     }
 
-    public Cell makeMove(Value[][] grid,int move) {
-        Cell cell = Cell.intToCell(move);
-        return cell;
+    public static Cell makeMove(Value[][] grid,int move) {
+        return Cell.intToCell(move);
     }
     //    public static int makeMove(Value[][] grid, Value value, int moves) {
     //        if (value.equals(Value.CROSS)) {
