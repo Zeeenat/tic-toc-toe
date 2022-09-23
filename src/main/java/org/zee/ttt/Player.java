@@ -12,12 +12,6 @@ public class Player {
     public static CELL makeMove(Scanner nextMove) {
         int moveAsInt = nextMove.nextInt();
         CELL cell = new CELL(moveAsInt / 10, moveAsInt % 10, nextMove);
-        //        if (((moveAsInt - moveAsInt % 10) / 10 - moveAsInt / 10 < 0)
-        //                && (cell.ROW == 0 || cell.ROW == 1 || cell.ROW == 2)
-        //                && (cell.COLUMN == 0 || cell.COLUMN == 1 || cell.COLUMN == 2)) {
-        //            throw new Exception("Несуществующая ячейка");
-        //        }
-
         return new CELL(moveAsInt / 10, moveAsInt % 10, nextMove);
 
     }
