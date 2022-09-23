@@ -13,13 +13,14 @@ public class GameEngine {
         };
         Player playerX = new Player(Value.CROSS);
         Player playerO = new Player(Value.NAUGHT);
+        Scanner inputMove = new Scanner(System.in);
         printGrid(grid);
         int move = 0;
         GameResult thisResult;
         do {
             Player thisPlayer = move % 2 == 0 ? playerX : playerO;
             Value thisValue = thisPlayer.value;
-            Cell nextMove = Player.makeMove(grid);
+            CELL nextMove = Player.makeMove(inputMove);
             grid[nextMove.ROW][nextMove.COLUMN] = thisValue;
             thisResult = getGameResult(grid, move, thisValue);
             printGrid(grid);

@@ -5,14 +5,21 @@ import java.util.Scanner;
 public class Player {
     Value value;
 
-    Player(Value value) {
+    public Player(Value value) {
         this.value = value;
     }
 
-    public static Cell makeMove(Value[][] grid) {
-        Scanner move = new Scanner(System.in);
-        int nextMove = move.nextInt();
-        return Cell.intToCell(nextMove);
+    public static CELL makeMove(Scanner nextMove) {
+        int moveAsInt = nextMove.nextInt();
+        CELL cell = new CELL(moveAsInt / 10, moveAsInt % 10, nextMove);
+        //        if (((moveAsInt - moveAsInt % 10) / 10 - moveAsInt / 10 < 0)
+        //                && (cell.ROW == 0 || cell.ROW == 1 || cell.ROW == 2)
+        //                && (cell.COLUMN == 0 || cell.COLUMN == 1 || cell.COLUMN == 2)) {
+        //            throw new Exception("Несуществующая ячейка");
+        //        }
+
+        return new CELL(moveAsInt / 10, moveAsInt % 10, nextMove);
+
     }
     //    public static int makeMove(Value[][] grid, Value value, int moves) {
     //        if (value.equals(Value.CROSS)) {
