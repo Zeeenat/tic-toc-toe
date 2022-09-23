@@ -9,7 +9,7 @@ public class Player {
         this.value = value;
     }
 
-    public static Cell makeMove() {
+    public static Cell makeMove(Value[][] grid) {
         Scanner move = new Scanner(System.in);
         int nextMove = move.nextInt();
         return Cell.intToCell(nextMove);
