@@ -9,8 +9,10 @@ public class Player {
         this.value = value;
     }
 
-    public static Cell makeMove(Value[][] grid) {
-        return new Cell(0, 0);
+    public static Cell makeMove() {
+        Scanner move = new Scanner(System.in);
+        int nextMove = move.nextInt();
+        return Cell.intToCell(nextMove);
     }
     //    public static int makeMove(Value[][] grid, Value value, int moves) {
     //        if (value.equals(Value.CROSS)) {

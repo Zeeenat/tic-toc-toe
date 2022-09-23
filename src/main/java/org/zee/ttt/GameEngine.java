@@ -14,13 +14,12 @@ public class GameEngine {
         Player playerX = new Player(Value.CROSS);
         Player playerO = new Player(Value.NAUGHT);
         printGrid(grid);
-        Scanner xnos = new Scanner(System.in);
         int move = 0;
         GameResult thisResult;
         do {
             Player thisPlayer = move % 2 == 0 ? playerX : playerO;
             Value thisValue = thisPlayer.value;
-            int nextMove = xnos.nextInt();
+            int nextMove = Cell.cellToInt(Player.makeMove());
             grid[nextMove / 10][nextMove % 10] = thisValue;
             thisResult = getGameResult(grid, move, thisValue);
             printGrid(grid);
@@ -34,7 +33,7 @@ public class GameEngine {
 
 
     public GameResult getGameResult(Value[][] grid, int move, Value currentValue) {
-        GameResult thisResult = currentValue==Value.CROSS ? GameResult.CROSSES_WON : GameResult.NAUGHTS_WON;
+        GameResult thisResult = currentValue == Value.CROSS ? GameResult.CROSSES_WON : GameResult.NAUGHTS_WON;
         for (int i = 0; i < grid.length; i++) {
             Value cell = grid[i][0];
             if ((cell == grid[i][1] && cell == grid[i][2]) && cell != Value.EMPTY) {
@@ -60,7 +59,7 @@ public class GameEngine {
     public void printGameResult(GameResult gameResult, Value currentValue) {
         switch (gameResult) {
             case GAME_CONTINUES:
-                if (currentValue==Value.CROSS) {
+                if (currentValue == Value.CROSS) {
                     System.out.println("Ход нолика");
                 } else {
                     System.out.println("Ход крестика");
