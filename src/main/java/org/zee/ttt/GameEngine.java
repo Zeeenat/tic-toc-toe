@@ -16,17 +16,17 @@ public class GameEngine {
         Player playerO = new Player(Value.NAUGHT, inputMove);
         printGrid(grid);
         boolean isPlayerX = true;
-        GameResult thisResult;
+        GameResult gameResult;
         do {
-            Player thisPlayer = isPlayerX ? playerX : playerO;
-            Value thisValue = isPlayerX ? Value.CROSS : Value.NAUGHT;
-            Cell nextMove = thisPlayer.makeMove(grid);
-            grid[nextMove.row][nextMove.column] = thisValue;
-            thisResult = getGameResult(grid, thisValue);
+            Player p = isPlayerX ? playerX : playerO;
+            Value v = isPlayerX ? Value.CROSS : Value.NAUGHT;
+            Cell move = p.makeMove(grid);
+            grid[move.row][move.column] = v;
             printGrid(grid);
             isPlayerX = !isPlayerX;
-            printGameResult(thisResult, thisValue);
-        } while (thisResult == GameResult.GAME_CONTINUES);
+            gameResult = getGameResult(grid, v);
+            printGameResult(gameResult, v);
+        } while (gameResult == GameResult.GAME_CONTINUES);
     }
 
 
