@@ -16,7 +16,6 @@ public class GameEngine {
         Player playerO = new Player(Value.NAUGHT, inputMove);
         printGrid(grid);
         boolean isPlayerX = true;
-        GameResult gameResult;
         do {
             Player p = isPlayerX ? playerX : playerO;
             Value v = isPlayerX ? Value.CROSS : Value.NAUGHT;
@@ -24,9 +23,12 @@ public class GameEngine {
             grid[move.row][move.column] = v;
             printGrid(grid);
             isPlayerX = !isPlayerX;
-            gameResult = getGameResult(grid, v);
+            GameResult gameResult = getGameResult(grid, v);
             printGameResult(gameResult, v);
-        } while (gameResult == GameResult.GAME_CONTINUES);
+            if (gameResult != GameResult.GAME_CONTINUES) {
+                break;
+            }
+        } while (true);
     }
 
 
