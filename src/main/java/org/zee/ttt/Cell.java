@@ -2,10 +2,10 @@ package org.zee.ttt;
 
 import java.util.Scanner;
 
-public final class Cell {
+public class Cell {
     int row;
     int column;
-    
+
     public Cell(int row, int column) {
         this.row = row;
         this.column = column;
