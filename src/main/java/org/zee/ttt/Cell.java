@@ -1,6 +1,5 @@
 package org.zee.ttt;
 
-import java.util.Scanner;
 
 public class Cell {
     int row;
