@@ -15,25 +15,22 @@ public class GameEngine {
         Player playerX = new Player(Value.CROSS, inputMove);
         Player playerO = new Player(Value.NAUGHT, inputMove);
         printGrid(grid);
-        int move = 0;
+        boolean isPlayerX = true;
         GameResult thisResult;
         do {
-            Player thisPlayer = move % 2 == 0 ? playerX : playerO;
-            Value thisValue = move % 2 == 0 ? Value.CROSS : Value.NAUGHT;
+            Player thisPlayer = isPlayerX ? playerX : playerO;
+            Value thisValue = isPlayerX ? Value.CROSS : Value.NAUGHT;
             Cell nextMove = thisPlayer.makeMove(grid);
             grid[nextMove.row][nextMove.column] = thisValue;
-            thisResult = getGameResult(grid, move, thisValue);
+            thisResult = getGameResult(grid, thisValue);
             printGrid(grid);
-            move++;
+            isPlayerX = !isPlayerX;
             printGameResult(thisResult, thisValue);
-            if (thisResult != GameResult.GAME_CONTINUES) {
-                break;
-            }
-        } while (move != 9);
+        } while (thisResult == GameResult.GAME_CONTINUES);
     }
 
 
-    public GameResult getGameResult(Value[][] grid, int move, Value currentValue) {
+    public GameResult getGameResult(Value[][] grid, Value currentValue) {
         GameResult thisResult = currentValue == Value.CROSS ? GameResult.CROSSES_WON : GameResult.NAUGHTS_WON;
         for (int i = 0; i < grid.length; i++) {
             Value cell = grid[i][0];
@@ -51,10 +48,14 @@ public class GameEngine {
                 return thisResult;
             }
         }
-        if (move == 9) {
-            return GameResult.DRAW;
+        for (Value[] row : grid) {
+            for (Value cell : row) {
+                if (cell.equals(Value.EMPTY)) {
+                    return GameResult.GAME_CONTINUES;
+                }
+            }
         }
-        return GameResult.GAME_CONTINUES;
+        return GameResult.DRAW;
     }
 
     public void printGameResult(GameResult gameResult, Value currentValue) {
