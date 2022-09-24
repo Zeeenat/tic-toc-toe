@@ -2,7 +2,6 @@ package org.zee.ttt.player;
 
 import org.zee.ttt.Cell;
 import org.zee.ttt.Value;
-import org.zee.ttt.player.Player;
 
 import java.util.Scanner;
 
