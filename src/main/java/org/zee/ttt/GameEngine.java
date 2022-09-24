@@ -2,6 +2,7 @@ package org.zee.ttt;
 
 import org.zee.ttt.player.HumanPlayer;
 import org.zee.ttt.player.Player;
+import org.zee.ttt.player.VirtualPlayer;
 
 import java.util.Scanner;
 
@@ -15,8 +16,8 @@ public class GameEngine {
                 {Value.EMPTY, Value.EMPTY, Value.EMPTY}
         };
         Scanner inputMove = new Scanner(System.in);
-        Player playerX = new HumanPlayer(Value.CROSS, inputMove);
-        Player playerO = new HumanPlayer(Value.NAUGHT, inputMove);
+        Player playerX = new VirtualPlayer(Value.CROSS);
+        Player playerO = new VirtualPlayer(Value.NAUGHT);
         printGrid(grid);
         boolean isPlayerX = true;
         do {
