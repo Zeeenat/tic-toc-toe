@@ -19,8 +19,8 @@ public class GameEngine {
         GameResult thisResult;
         do {
             Player thisPlayer = move % 2 == 0 ? playerX : playerO;
-            Value thisValue = thisPlayer.value;
-            Cell nextMove = Player.makeMove(grid, inputMove);
+            Value thisValue = thisPlayer.getValue();
+            Cell nextMove = thisPlayer.makeMove(grid);
             grid[nextMove.row][nextMove.column] = thisValue;
             thisResult = getGameResult(grid, move, thisValue);
             printGrid(grid);
