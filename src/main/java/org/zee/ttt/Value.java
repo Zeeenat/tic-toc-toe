@@ -1,13 +1,19 @@
 package org.zee.ttt;
 
 public enum Value {
-    /** X */
+    /**
+     * X
+     */
     CROSS("X"),
 
-    /** O */
+    /**
+     * O
+     */
     NAUGHT("0"),
 
-    /** No value yet */
+    /**
+     * No value yet
+     */
     EMPTY("-");
 
     String displayValue;

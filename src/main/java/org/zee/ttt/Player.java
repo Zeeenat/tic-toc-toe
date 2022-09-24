@@ -9,10 +9,9 @@ public class Player {
         this.value = value;
     }
 
-    public static CELL makeMove(Scanner nextMove) {
+    public static Cell makeMove(Value[][] grid, Scanner nextMove) {
         int moveAsInt = nextMove.nextInt();
-        CELL cell = new CELL(moveAsInt / 10, moveAsInt % 10, nextMove);
-        return new CELL(moveAsInt / 10, moveAsInt % 10, nextMove);
+        return new Cell(moveAsInt / 10, moveAsInt % 10, nextMove);
 
     }
     //    public static int makeMove(Value[][] grid, Value value, int moves) {
