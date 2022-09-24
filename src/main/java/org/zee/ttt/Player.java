@@ -4,14 +4,16 @@ import java.util.Scanner;
 
 public class Player {
     Value value;
+    Scanner nextMove;
 
-    public Player(Value value) {
+    public Player(Value value, Scanner nextMove) {
         this.value = value;
+        this.nextMove = nextMove;
     }
 
     public static Cell makeMove(Value[][] grid, Scanner nextMove) {
         int moveAsInt = nextMove.nextInt();
-        return new Cell(moveAsInt / 10, moveAsInt % 10, nextMove);
+        return new Cell(moveAsInt / 10, moveAsInt % 10);
 
     }
     //    public static int makeMove(Value[][] grid, Value value, int moves) {

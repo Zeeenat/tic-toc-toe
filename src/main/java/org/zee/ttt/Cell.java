@@ -5,12 +5,10 @@ import java.util.Scanner;
 public final class Cell {
     int row;
     int column;
-    Scanner nextMove;
-
-    public Cell(int row, int column, Scanner nextMove) {
+    
+    public Cell(int row, int column) {
         this.row = row;
         this.column = column;
-        this.nextMove = nextMove;
     }
 
 

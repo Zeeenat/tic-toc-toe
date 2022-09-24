@@ -11,9 +11,9 @@ public class GameEngine {
                 {Value.EMPTY, Value.EMPTY, Value.EMPTY},
                 {Value.EMPTY, Value.EMPTY, Value.EMPTY}
         };
-        Player playerX = new Player(Value.CROSS);
-        Player playerO = new Player(Value.NAUGHT);
         Scanner inputMove = new Scanner(System.in);
+        Player playerX = new Player(Value.CROSS, inputMove);
+        Player playerO = new Player(Value.NAUGHT, inputMove);
         printGrid(grid);
         int move = 0;
         GameResult thisResult;
