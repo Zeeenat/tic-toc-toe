@@ -3,8 +3,8 @@ package org.zee.ttt;
 import java.util.Scanner;
 
 public class Player {
-    Value value;
-    Scanner nextMove;
+    public final Value value;
+    public final Scanner nextMove;
 
     public Player(Value value, Scanner nextMove) {
         this.value = value;
@@ -14,7 +14,6 @@ public class Player {
     public static Cell makeMove(Value[][] grid, Scanner nextMove) {
         int moveAsInt = nextMove.nextInt();
         return new Cell(moveAsInt / 10, moveAsInt % 10);
-
     }
     //    public static int makeMove(Value[][] grid, Value value, int moves) {
     //        if (value.equals(Value.CROSS)) {
