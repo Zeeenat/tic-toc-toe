@@ -12,15 +12,7 @@ public class Player {
     }
 
     public Cell makeMove(Value[][] grid) {
-        int moveAsInt = getNextMove().nextInt();
+        int moveAsInt = nextMove.nextInt();
         return new Cell(moveAsInt / 10, moveAsInt % 10);
-    }
-
-    public Scanner getNextMove() {
-        return nextMove;
-    }
-
-    public Value getValue() {
-        return value;
     }
 }
