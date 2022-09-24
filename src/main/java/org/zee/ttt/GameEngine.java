@@ -1,5 +1,8 @@
 package org.zee.ttt;
 
+import org.zee.ttt.player.HumanPlayer;
+import org.zee.ttt.player.Player;
+
 import java.util.Scanner;
 
 public class GameEngine {
