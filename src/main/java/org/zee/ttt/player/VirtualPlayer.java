@@ -5,6 +5,7 @@ import org.zee.ttt.Value;
 
 import java.util.Random;
 
+
 public class VirtualPlayer implements Player {
     private final Value value;
 
@@ -15,11 +16,16 @@ public class VirtualPlayer implements Player {
 
     @Override
     public Cell makeMove(Value[][] grid) {
+        //определить нет ли выигрышных ситуаций у нас
         if (winningSituation(grid, value) != null) {
             return winningSituation(grid, value);
-        } else if (winningSituation(grid, value == Value.CROSS ? Value.NAUGHT : Value.CROSS) != null) {
+        }
+        //определить нет ли выигрышных ситуаций у соперника
+        else if (winningSituation(grid, value == Value.CROSS ? Value.NAUGHT : Value.CROSS) != null) {
             return winningSituation(grid, value == Value.CROSS ? Value.NAUGHT : Value.CROSS);
-        } else {
+        }
+        //сделать рандомный ход
+        else {
             return makeRandomMove(grid);
         }
     }
