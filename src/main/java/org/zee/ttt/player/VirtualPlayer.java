@@ -15,8 +15,13 @@ public class VirtualPlayer implements Player {
 
     @Override
     public Cell makeMove(Value[][] grid) {
-
-        return null;
+        if (winningSituation(grid, value) != null) {
+            return winningSituation(grid, value);
+        } else if (winningSituation(grid, value == Value.CROSS ? Value.NAUGHT : Value.CROSS) != null) {
+            return winningSituation(grid, value == Value.CROSS ? Value.NAUGHT : Value.CROSS);
+        } else {
+            return makeRandomMove(grid);
+        }
     }
 
     public Cell makeRandomMove(Value[][] grid) {
@@ -45,60 +50,70 @@ public class VirtualPlayer implements Player {
         return null;
     }
 
-    public static int winningSituation(Value[][] grid, Value value) {
-        if ((grid[0][1] == grid[0][2] && grid[0][1] == value) ||
-                (grid[1][0] == grid[2][0] && grid[2][0] == value) ||
-                (grid[1][1] == grid[2][2] && grid[2][2] == value)) {
-            return 0;
+
+    public static Cell winningSituation(Value[][] grid, Value value) {
+        if (grid[0][0] == Value.EMPTY && (
+                (grid[0][1] == grid[0][2] && grid[0][1] == value) ||
+                        (grid[1][0] == grid[2][0] && grid[2][0] == value) ||
+                        (grid[1][1] == grid[2][2] && grid[2][2] == value))) {
+            return new Cell(0, 0);
         }
 
-        if ((grid[0][0] == grid[0][2] && grid[0][0] == value) ||
-                (grid[1][1] == grid[2][1] && grid[1][1] == value)) {
-            return 1;
-        }
-
-
-        if ((grid[0][0] == grid[0][1] && grid[0][0] == value) ||
-                (grid[1][2] == grid[2][2] && grid[1][2] == value) ||
-                (grid[1][1] == grid[2][0] && grid[1][1] == value)) {
-            return 2;
+        if (grid[0][1] == Value.EMPTY && (
+                (grid[0][0] == grid[0][2] && grid[0][0] == value) ||
+                        (grid[1][1] == grid[2][1] && grid[1][1] == value))) {
+            return new Cell(0, 1);
         }
 
 
-        if ((grid[0][0] == grid[2][0] && grid[0][0] == value) ||
-                (grid[1][1] == grid[1][2] && grid[1][1] == value)) {
-            return 10;
-        }
-
-        if ((grid[0][0] == grid[2][2] && grid[0][0] == value) ||
-                (grid[0][1] == grid[2][1] && grid[0][1] == value) ||
-                (grid[0][2] == grid[2][0] && grid[0][2] == value) ||
-                (grid[1][0] == grid[1][2] && grid[1][0] == value)) {
-            return 11;
+        if (grid[0][2] == Value.EMPTY && (
+                (grid[0][0] == grid[0][1] && grid[0][0] == value) ||
+                        (grid[1][2] == grid[2][2] && grid[1][2] == value) ||
+                        (grid[1][1] == grid[2][0] && grid[1][1] == value))) {
+            return new Cell(0, 2);
         }
 
 
-        if ((grid[0][2] == grid[2][2] && grid[0][2] == value) ||
-                (grid[1][0] == grid[1][1] && grid[1][0] == value)) {
-            return 12;
+        if (grid[1][0] == Value.EMPTY && (
+                (grid[0][0] == grid[2][0] && grid[0][0] == value) ||
+                        (grid[1][1] == grid[1][2] && grid[1][1] == value))) {
+            return new Cell(1, 0);
         }
 
-        if ((grid[0][0] == grid[1][0] && grid[0][0] == value) ||
-                (grid[2][1] == grid[2][2] && grid[2][1] == value) ||
-                (grid[0][2] == grid[1][1] && grid[1][1] == value)) {
-            return 20;
+        if (grid[1][1] == Value.EMPTY && (
+                (grid[0][0] == grid[2][2] && grid[0][0] == value) ||
+                        (grid[0][1] == grid[2][1] && grid[0][1] == value) ||
+                        (grid[0][2] == grid[2][0] && grid[0][2] == value) ||
+                        (grid[1][0] == grid[1][2] && grid[1][0] == value))) {
+            return new Cell(1, 1);
         }
 
-        if ((grid[0][1] == grid[1][1] && grid[0][1] == value) ||
-                (grid[2][0] == grid[2][2] && grid[2][0] == value)) {
-            return 21;
+
+        if (grid[1][2] == Value.EMPTY && (
+                (grid[0][2] == grid[2][2] && grid[0][2] == value) ||
+                        (grid[1][0] == grid[1][1] && grid[1][0] == value))) {
+            return new Cell(1, 2);
         }
 
-        if ((grid[0][0] == grid[1][1] && grid[1][1] == value) ||
-                (grid[0][2] == grid[1][2] && grid[0][2] == value) ||
-                (grid[2][0] == grid[2][1] && grid[2][0] == value)) {
-            return 22;
+        if (grid[2][0] == Value.EMPTY && (
+                (grid[0][0] == grid[1][0] && grid[0][0] == value) ||
+                        (grid[2][1] == grid[2][2] && grid[2][1] == value) ||
+                        (grid[0][2] == grid[1][1] && grid[1][1] == value))) {
+            return new Cell(2, 0);
         }
-        return -1;
+
+        if (grid[2][1] == Value.EMPTY && (
+                (grid[0][1] == grid[1][1] && grid[0][1] == value) ||
+                        (grid[2][0] == grid[2][2] && grid[2][0] == value))) {
+            return new Cell(2, 1);
+        }
+
+        if (grid[2][2] == Value.EMPTY && (
+                (grid[0][0] == grid[1][1] && grid[1][1] == value) ||
+                        (grid[0][2] == grid[1][2] && grid[0][2] == value) ||
+                        (grid[2][0] == grid[2][1] && grid[2][0] == value))) {
+            return new Cell(2, 2);
+        }
+        return null;
     }
 }
